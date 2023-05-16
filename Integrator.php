@@ -8,8 +8,8 @@ class Integrator
 {
     private $_instructions = null;
     
-    public function __construct(Instruction $instruction) {
-        $this->_instructions = $instruction;
+    public function __construct(string $instruction) {
+        $this->_instructions = new $instruction();
     }
 
     public function send(array $package) {
