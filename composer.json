@@ -1,0 +1,21 @@
+{
+    "name": "notelementimport/integrator",
+    "description": "Integrator DD",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "notelementimport",
+            "email": "kirillsons12@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "notelementimport\\": ""
+        }
+    }
+}
