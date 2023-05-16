@@ -11,6 +11,8 @@ class Instruction
     protected $typeContent = 'application/json';
     protected $unicodeConverter = false;
 
+    private $_cache = [];
+
     public function send(array $package) {
         $urlCURL = $this->urlRoot;
 
@@ -21,6 +23,10 @@ class Instruction
             }
 
             $urlCURL .= '?'.implode('&', $pack);
+        }
+
+        if(array_key_exists($urlCURL, $this->_cache)) {
+            return $this->_cache[$urlCURL];
         }
 
         $curlObject = curl_init($urlCURL);
@@ -36,6 +42,8 @@ class Instruction
         }
 
         $result = $this->proccesing($result);
+
+        $this->_cache[$urlCURL] = $result;
 
         return $result;
     }
